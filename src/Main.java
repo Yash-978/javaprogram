@@ -50,6 +50,36 @@ public class Main {
 
 
         // WAP TO CREATE PATTERN AS MENTIONED BELOW IMAGE.
+        class primeNumber {
+
+            static int addPrimes(int n)
+            {
+                boolean checkPrime[]=new boolean[n + 1];
+
+                Arrays.fill(checkPrime, true);
+
+                for (int p = 2; p * p <= n; p++) {
+
+                    if (checkPrime[p]) {
+
+                        for (int i = p * 2; i <= n; i += p)
+                            checkPrime[i] = false;
+                    }
+                }
+
+                int sum = 0;
+                for (int i = 2; i <= n; i++)
+                    if (checkPrime[i])
+                        sum += i;
+                return sum;
+            }
+
+            public static void main(String args[])
+            {
+                int n = 25;
+                System.out.print(addPrimes(n));
+            }
+        }
 
 
 
